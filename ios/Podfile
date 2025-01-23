@@ -15,7 +15,17 @@ if linkage != nil
 end
 
 target 'FireBaseApp' do
+
+  # pod 'Firebase/Core'
+  # pod 'Firebase/Analytics'
+
+  pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
+
   config = use_native_modules!
+
+  use_frameworks! :linkage => :static
+  $RNFirebaseAsStaticFramework = true
 
   use_react_native!(
     :path => config[:reactNativePath],
@@ -38,3 +48,6 @@ target 'FireBaseApp' do
     )
   end
 end
+
+
+
